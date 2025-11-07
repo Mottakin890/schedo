@@ -3,8 +3,9 @@ import 'package:api_prep_dio/common/resources/assets/app_colors.dart';
 import 'package:api_prep_dio/common/resources/dimentions/spacings.dart';
 import 'package:api_prep_dio/common/utils/widgets/common_card.dart';
 import 'package:api_prep_dio/common/utils/widgets/common_container.dart';
+import 'package:api_prep_dio/presentation/view_model/page_router_vm.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:get/get.dart';
 
 class RegistrationView extends StatefulWidget {
   const RegistrationView({super.key});
@@ -14,6 +15,7 @@ class RegistrationView extends StatefulWidget {
 }
 
 class _RegistrationViewState extends State<RegistrationView> {
+  final PageRouterVm _pageRouterVm = Get.find<PageRouterVm>();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -69,7 +71,7 @@ class _RegistrationViewState extends State<RegistrationView> {
 
             //with email
             GestureDetector(
-              onTap: () {},
+              onTap: _pageRouterVm.toLogin,
               child: CommonContainer(
                 containerColor: AppColors.cPrimary,
                 iconName: AppAssets.emailIcon,
