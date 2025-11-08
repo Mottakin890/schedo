@@ -21,66 +21,68 @@ class _RegistrationViewState extends State<RegistrationView> {
     return Scaffold(
       backgroundColor: AppColors.cWhite,
       body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            //Top Icons here
-            CommonCard(
-              iconName: AppAssets.taskIcon,
-              iconColor: AppColors.cPrimary,
-            ),
-
-            Spacing.vertical(50),
-
-            //Intro text here
-            Text(
-              'Welcome to Schedo',
-              style: TextStyle(fontWeight: FontWeight.bold, fontSize: 25),
-            ),
-            Spacing.vertical(12),
-            Text(
-              'Create an account to save all schedules \nand access them from anywhere.',
-              textAlign: TextAlign.center,
-              style: TextStyle(color: AppColors.cGrey),
-            ),
-
-            Spacing.vertical(60),
-
-            //Registration options here
-            //with facebook
-            GestureDetector(
-              onTap: () {},
-              child: CommonContainer(
-                containerColor: AppColors.cGrey300.withOpacity(0.3),
-                iconName: AppAssets.facebookIcon,
-                hintText: "Continue with Facebook",
+        child: SingleChildScrollView(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              //Top Icons here
+              CommonCard(
+                iconName: AppAssets.taskIcon,
+                iconColor: AppColors.cPrimary,
               ),
-            ),
-            Spacing.vertical(20),
 
-            //with google
-            GestureDetector(
-              onTap: () {},
-              child: CommonContainer(
-                containerColor: AppColors.cGrey300.withOpacity(0.3),
-                iconName: AppAssets.googleIcon,
-                hintText: "Continue with Google",
-              ),
-            ),
-            Spacing.vertical(20),
+              Spacing.vertical(50),
 
-            //with email
-            GestureDetector(
-              onTap: _pageRouterVm.toLogin,
-              child: CommonContainer(
-                containerColor: AppColors.cPrimary,
-                iconName: AppAssets.emailIcon,
-                hintText: "Continue with Email",
-                hintTextColor: AppColors.cWhite,
-                iconColor: AppColors.cWhite,
+              //Intro text here
+              Text(
+                'Welcome to Schedo',
+                style: TextStyle(fontWeight: FontWeight.bold, fontSize: 25),
               ),
-            ),
-          ],
+              Spacing.vertical(12),
+              Text(
+                'Create an account to save all schedules \nand access them from anywhere.',
+                textAlign: TextAlign.center,
+                style: TextStyle(color: AppColors.cGrey),
+              ),
+
+              Spacing.vertical(60),
+
+              //Registration options here
+              //with facebook
+              GestureDetector(
+                onTap: () {},
+                child: CommonContainer(
+                  containerColor: AppColors.cGrey300.withOpacity(0.3),
+                  iconName: AppAssets.facebookIcon,
+                  hintText: "Continue with Facebook",
+                ),
+              ),
+              Spacing.vertical(20),
+
+              //with google
+              GestureDetector(
+                onTap: () {},
+                child: CommonContainer(
+                  containerColor: AppColors.cGrey300.withOpacity(0.3),
+                  iconName: AppAssets.googleIcon,
+                  hintText: "Continue with Google",
+                ),
+              ),
+              Spacing.vertical(20),
+
+              //with email
+              GestureDetector(
+                onTap: _pageRouterVm.toLogin,
+                child: CommonContainer(
+                  containerColor: AppColors.cPrimary,
+                  iconName: AppAssets.emailIcon,
+                  hintText: "Continue with Email",
+                  hintTextColor: AppColors.cWhite,
+                  iconColor: AppColors.cWhite,
+                ),
+              ),
+            ],
+          ),
         ),
       ),
     );
