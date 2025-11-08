@@ -1,8 +1,9 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:get/get.dart';
 
-class CommonAppBar extends StatelessWidget implements PreferredSizeWidget {
+class CommonAppBar extends StatefulWidget implements PreferredSizeWidget {
   final Color? backgroundColor;
   final bool showBackButton;
   const CommonAppBar({
@@ -12,10 +13,23 @@ class CommonAppBar extends StatelessWidget implements PreferredSizeWidget {
   });
 
   @override
+  State<CommonAppBar> createState() => _CommonAppBarState();
+
+  @override
+  Size get preferredSize => const Size.fromHeight(kToolbarHeight);
+}
+
+class _CommonAppBarState extends State<CommonAppBar> {
+  @override
   Widget build(BuildContext context) {
     return AppBar(
-      backgroundColor: backgroundColor,
-      leading: showBackButton
+      systemOverlayStyle: const SystemUiOverlayStyle(
+        statusBarColor: Colors.transparent, // Make status bar transparent
+        statusBarIconBrightness: Brightness.dark, // Dark icons for light background
+        statusBarBrightness: Brightness.light, // For iOS
+      ),
+      backgroundColor: widget.backgroundColor,
+      leading: widget.showBackButton
           ? GestureDetector(
               onTap: () => Get.back(),
               child: Icon(CupertinoIcons.chevron_back, size: 40),
@@ -23,7 +37,4 @@ class CommonAppBar extends StatelessWidget implements PreferredSizeWidget {
           : null,
     );
   }
-
-  @override
-  Size get preferredSize => const Size.fromHeight(kToolbarHeight);
 }
