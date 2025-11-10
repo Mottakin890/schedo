@@ -1,6 +1,6 @@
 import 'package:api_prep_dio/common/resources/routes/app_pages.dart';
 import 'package:api_prep_dio/common/resources/routes/app_routes.dart';
-import 'package:api_prep_dio/common/utils/di/dependency_inujection.dart';
+import 'package:api_prep_dio/common/utils/di/dependency_injection.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -41,7 +41,7 @@ class TaskManagerApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GetMaterialApp(
-      initialBinding: DependencyInujection(),
+      initialBinding: DependencyInjection(),
       getPages: AppRoutes.routes,
       initialRoute: AppPages.splash,
       debugShowCheckedModeBanner: false,

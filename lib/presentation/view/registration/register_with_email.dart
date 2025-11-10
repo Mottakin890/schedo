@@ -5,20 +5,21 @@ import 'package:api_prep_dio/common/utils/widgets/common_app_bar.dart';
 import 'package:api_prep_dio/common/utils/widgets/common_text_field.dart';
 import 'package:api_prep_dio/presentation/view_model/page_router_vm.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:lottie/lottie.dart';
 
-class LoginView extends StatefulWidget {
+class RegisterWithEmail extends StatefulWidget {
   final TextEditingController _emailController = TextEditingController();
   final TextEditingController _passwordController = TextEditingController();
-  LoginView({super.key});
+  final TextEditingController _confirmPasswordController = TextEditingController();
+  RegisterWithEmail({super.key});
 
   @override
-  State<LoginView> createState() => _LoginViewState();
+  State<RegisterWithEmail> createState() => _RegisterWithEmailState();
 }
 
-class _LoginViewState extends State<LoginView> {
+class _RegisterWithEmailState extends State<RegisterWithEmail> {
   final PageRouterVm _pageRouterVm = Get.find<PageRouterVm>();
   @override
   Widget build(BuildContext context) {
@@ -30,14 +31,15 @@ class _LoginViewState extends State<LoginView> {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
+
               Lottie.asset(
-                AppAssets.loginLottie,
-                height: 230,
-                repeat: true,
+                AppAssets.registerLottie,
+                height: 160,
                 fit: BoxFit.contain,
+                repeat: true,
               ),
               Text(
-                'Welcome Back',
+                'Welcome to Schedo',
                 style: TextStyle(
                   color: AppColors.cBlack,
                   fontSize: 35,
@@ -45,7 +47,7 @@ class _LoginViewState extends State<LoginView> {
                 ),
               ),
               Text(
-                "Let's dig into your account!",
+                "Let's start our journey together.",
                 style: TextStyle(
                   color: AppColors.cBlack,
                   fontSize: 16,
@@ -67,7 +69,7 @@ class _LoginViewState extends State<LoginView> {
                   ),
                 ),
               ),
-              Spacing.vertical(12),
+              Spacing.vertical(6),
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 20.0),
                 child: Hero(
@@ -83,28 +85,16 @@ class _LoginViewState extends State<LoginView> {
               ),
               Spacing.vertical(6),
               Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 30.0),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.start,
-                  children: [
-                    Text(
-                      'Forgot your password?',
-                      style: TextStyle(fontSize: 12.sp, color: AppColors.cGrey.withOpacity(0.5)),
-                    ),
-                    Spacing.horizontal(5),
-                    GestureDetector(
-                      onTap: _pageRouterVm.toForgotPassword,
-                      child: Text(
-                        'Click here',
-                        style: TextStyle(
-                          color: AppColors.cPrimary,
-                          fontWeight: FontWeight.bold,
-                          fontSize: 12.sp,
-
-                        ),
-                      ),
-                    ),
-                  ],
+                padding: const EdgeInsets.symmetric(horizontal: 20.0),
+                child: Hero(
+                  tag: "confirm password",
+                  child: CommonTextField(
+                    textEditingController: widget._confirmPasswordController,
+                    context: context,
+                    labelText: 'Confirm your passcode',
+                    enabled: true,
+                    textInputType: TextInputType.visiblePassword,
+                  ),
                 ),
               ),
               Spacing.vertical(15),
@@ -123,7 +113,7 @@ class _LoginViewState extends State<LoginView> {
                     ),
                     child: Center(
                       child: Text(
-                        'Login',
+                        'Register',
                         style: TextStyle(
                           color: AppColors.cWhite,
                           fontSize: 16,
@@ -139,14 +129,14 @@ class _LoginViewState extends State<LoginView> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Text(
-                    "Don't have an account?",
+                    "Already have an account?",
                     style: TextStyle(color: AppColors.cGrey.withOpacity(0.5)),
                   ),
                   Spacing.horizontal(6),
                   GestureDetector(
-                    onTap: _pageRouterVm.toEmailRegistration,
+                    onTap: _pageRouterVm.toLogin,
                     child: Text(
-                      "Let's create one!",
+                      "Login!",
                       style: TextStyle(
                         color: AppColors.cPrimary,
                         fontWeight: FontWeight.bold,

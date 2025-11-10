@@ -32,7 +32,7 @@ class _CommonAppBarState extends State<CommonAppBar> {
       leading: widget.showBackButton
           ? GestureDetector(
               onTap: () => Get.back(),
-              child: Icon(CupertinoIcons.chevron_back, size: 40),
+              child: Icon(Icons.arrow_back_ios),
             )
           : null,
     );
