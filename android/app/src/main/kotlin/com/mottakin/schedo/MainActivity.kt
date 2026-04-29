@@ -1,4 +1,4 @@
-package com.example.api_prep_dio
+package com.mottakin.schedo
 
 import io.flutter.embedding.android.FlutterActivity
 
