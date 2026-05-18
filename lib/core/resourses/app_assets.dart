@@ -11,4 +11,7 @@ class AppAssets {
   static const String appIconPng = '$pngAssets/task.png';
   static const String taskWhite = '$svgAssets/task_white.svg';
   static const String arrow = '$svgAssets/arrow.svg';
+  static const String onboard_1st = '$pngAssets/1st.png';
+  static const String onboard_2nd = '$pngAssets/2nd.png';
+  static const String onboard_3rd = '$pngAssets/3rd.png';
 }

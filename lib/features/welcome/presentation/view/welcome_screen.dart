@@ -14,41 +14,71 @@ class WelcomeScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: AppColors.c7FA6FF,
-      body: Center(
-        child: Column(
-          mainAxisAlignment: .center,
+      body: SafeArea(
+        child: Padding(
+          padding: EdgeInsets.symmetric(horizontal: 28.w),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              Spacing.vertical(50),
+              SvgPicture.asset(
+                AppAssets.taskWhite,
+                height: 170.h,
+                width: 140.w,
+              ),
+              Spacing.vertical(20),
+              Text(
+                'Welcome to Schedo',
+                textAlign: TextAlign.center,
+                style: TextStyle(
+                  color: AppColors.cFFFFFF,
+                  fontFamily: 'Poppins',
+                  fontWeight: FontWeight.bold,
+                  fontSize: 36.sp,
+                ),
+              ),
+              Spacing.vertical(18),
+              Text(
+                'A comprehensive mini CRM for teams collaboration and productivity.',
+                textAlign: TextAlign.center,
+                style: TextStyle(
+                  color: AppColors.cFFFFFF.withOpacity(0.92),
+                  fontFamily: 'Poppins',
+                  fontSize: 16.sp,
+                  height: 1.5,
+                ),
+              ),
+              const Spacer(),
+              SizedBox(
+                width: double.infinity,
+                height: 58.h,
+                child: ElevatedButton(
+                  onPressed: () {
+                    context.go(AppPages.onboarding);
+                  },
+                  style: ElevatedButton.styleFrom(
+                    backgroundColor: AppColors.cF5F5F5,
+                    foregroundColor: AppColors.c000000,
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(18.r),
+                    ),
+                    elevation: 0,
+                  ),
+                  child: Text(
+                    'Get Started',
+                    style: TextStyle(
+                      fontFamily: 'Poppins',
+                      fontSize: 18.sp,
+                      fontWeight: FontWeight.w600,
+                    ),
+                  ),
+                ),
+              ),
 
-          children: [
-            SvgPicture.asset(AppAssets.taskWhite, height: 200.h, width: 150.w),
-            Text(
-              'Schedo',
-              style: TextStyle(
-                color: AppColors.cFFFFFF,
-                fontFamily: 'Poppins',
-                fontWeight: .bold,
-                fontSize: 42.sp,
-              ),
-            ),
-            Spacing.vertical(15),
-            Text(
-              'A comprehensive mini CRM for \nteams collaborations.',
-              textAlign: .center,
-              style: TextStyle(
-                color: AppColors.cFFFFFF,
-                fontFamily: 'Poppins',
-                fontSize: 15.sp,
-              ),
-            ),
-          ],
+              Spacing.vertical(40),
+            ],
+          ),
         ),
-      ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: () {
-          context.go(AppPages.onboarding);
-        },
-        backgroundColor: AppColors.cF5F5F5,
-        shape: RoundedRectangleBorder(borderRadius: .circular(66.r)),
-        child: SvgPicture.asset(AppAssets.arrow, height: 16.h, width: 10.w),
       ),
     );
   }
